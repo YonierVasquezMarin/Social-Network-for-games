@@ -9,7 +9,11 @@ header {
     background-color: cornflowerblue;
     flex-flow: row nowrap;
     align-items: center;
+    height: 56px;
 }
+    header > img {
+        max-height: 100%;
+    }
     header > div {
         width: 100%;
         display: flex;
@@ -21,7 +25,7 @@ header {
             background-color: crimson;
         }
 
-/* Cuerpo de la página */
+/* Cuerpo de la página (en todas las vistas va a ser igual)*/
 main {
     display: flex;
     flex-flow: row nowrap;
@@ -30,15 +34,41 @@ main {
     height: 1000px;
     min-height: 1000px;
 }
-    main > div:nth-child(1) {
+    #menu {
         width: 400px;
-        background-color: darkolivegreen;
+        padding: 17px;
+        box-sizing: border-box;
     }
-    main > div:nth-child(2) {
-        width: 10px;
+        .botonesDelMenu {
+            padding: 10px;
+            background-color: chocolate;
+            display: flex;
+            align-items: center;
+            padding-left: 18px;
+            border-radius: 10px;
+        }
+        .botonesDelMenu:not(:first-child) {
+           margin-top: 14px;
+        } 
+            .botonesDelMenu > img {
+                margin-right: 11px;
+                width: 30px;
+            }
+            .botonesDelMenu > h3 {
+                display: inline-block;
+                font-family: sans-serif;
+                font-size: 20px;
+            }
+    #barraDeslizante {
+        width: 2px;
         background-color: darkred;
+        transition: width .3s linear .5s;
     }
-    main > div:nth-child(3) {
-        width: 100%;
+        #barraDeslizante:hover {
+            width: 10px;
+            cursor: e-resize;
+            transition: width .3s linear;
+        }
+    #vistaDeContenido {
         background-color: gold;
     }
