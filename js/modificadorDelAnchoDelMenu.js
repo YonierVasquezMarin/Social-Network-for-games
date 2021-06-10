@@ -23,7 +23,7 @@ function modificarAnchoDelMenu() {
         if(mouseLevantado) {
             event.preventDefault();
         } else {
-            if(posicionMouseX >= 245 && posicionMouseX <= 446) {
+            if(posicionMouseX >= 245 && posicionMouseX <= 500) {
                 zonaDelMenu.style = `width: ${posicionMouseX}px;`;
             }
         }
