@@ -60,14 +60,11 @@ main {
                 font-size: 20px;
             }
     #barraDeslizante {
-        width: 2px;
-        background-color: darkred;
-        transition: width .3s linear .5s;
+        width: 6px;
+        background-color: black;
     }
         #barraDeslizante:hover {
-            width: 10px;
             cursor: e-resize;
-            transition: width .3s linear;
         }
     #vistaDeContenido {
         background-color: gold;
