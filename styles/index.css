@@ -10,7 +10,7 @@ h3 {
 header {
     display: flex;
     padding: 15px;
-    background-color: cornflowerblue;
+    background-color: #927bf7;
     flex-flow: row nowrap;
     align-items: center;
     height: 56px;
@@ -36,7 +36,7 @@ header {
 main {
     display: flex;
     flex-flow: row nowrap;
-    background-color: #a9a9a98a;
+    background-color: white;
     width: 100%;
     height: 1000px;
     min-height: 1000px;
@@ -50,19 +50,19 @@ main {
     }
         .botonesDelMenu {
             padding: 10px;
-            background-color: #a7a5a5;
+            background-color: #ccccf3;
             display: flex;
             align-items: center;
             padding-left: 18px;
             border-radius: 10px;
-            transition: background-color .1s linear .1s;
+            transition: background-color .1s linear;
         }
         .botonesDelMenu:not(:first-child) {
            margin-top: 14px;
         }
         .botonesDelMenu:hover {
-            background-color: #7c7a7a;
-            transition: background-color .1s linear .1s;
+            background-color: #8680c8;
+            transition: background-color .1s linear;
         } 
             .botonesDelMenu > img {
                 margin-right: 11px;
@@ -74,12 +74,10 @@ main {
                 font-size: 18px;
             }
     #barraDeslizante {
-        width: 7px;
-        background-color: gray;
+        width: 5px;
+        background-color: #808080c9;
+        cursor: e-resize;
     }
-        #barraDeslizante:hover {
-            cursor: e-resize;
-        }
     #vistaDeContenido {
         background-color: gold;
     }
