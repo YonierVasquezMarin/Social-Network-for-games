@@ -14,9 +14,7 @@ bodyElement.addEventListener('mouseup', () => {
 });
 
 //Ejecutar cuando se da click sostenido
-barraDeslizante.addEventListener('mousedown', modificarAnchoDelMenu);
-
-function modificarAnchoDelMenu() {
+barraDeslizante.addEventListener('mousedown', () => {
     mouseLevantado = false;
     bodyElement.addEventListener('mousemove', (event) => {
         let posicionMouseX = event.pageX;
@@ -28,4 +26,4 @@ function modificarAnchoDelMenu() {
             }
         }
     });
-}
+});

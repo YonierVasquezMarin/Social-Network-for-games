@@ -1,6 +1,9 @@
-/* Se aplica a todas las páginas */
+/* Se aplica a todas las vistas */
 * {
     margin: 0;
+}
+h3 {
+    cursor: default;
 }
 
 /* Encabezado de la página*/
@@ -63,12 +66,12 @@ main {
         } 
             .botonesDelMenu > img {
                 margin-right: 11px;
-                width: 30px;
+                width: 28px;
             }
             .botonesDelMenu > h3 {
                 display: inline-block;
                 font-family: sans-serif;
-                font-size: 20px;
+                font-size: 18px;
             }
     #barraDeslizante {
         width: 7px;
