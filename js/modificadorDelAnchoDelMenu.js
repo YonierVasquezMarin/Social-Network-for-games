@@ -7,17 +7,25 @@ bodyElement.addEventListener('mousedown', (event) => {
     event.preventDefault();
 });
 
-//Conocer constantemente la ubicación X del cursor en la página
-var ubicacionCursorX = 0;
-bodyElement.addEventListener('mousemove', (eventMouseMove) => {
-    ubicacionCursorX = eventMouseMove.pageX;
+//Captar cuando el mouse es soltado
+var mouseLevantado = false;
+bodyElement.addEventListener('mouseup', () => {
+    mouseLevantado = true;
 });
 
 //Ejecutar cuando se da click sostenido
 barraDeslizante.addEventListener('mousedown', modificarAnchoDelMenu);
 
-function modificarAnchoDelMenu(event) {
-    document.body.addEventListener('mousemove', (eventM) => {
-        zonaDelMenu.style = `width: ${eventM.pageX}px;`
+function modificarAnchoDelMenu() {
+    mouseLevantado = false;
+    bodyElement.addEventListener('mousemove', (event) => {
+        let posicionMouseX = event.pageX;
+        if(mouseLevantado) {
+            event.preventDefault();
+        } else {
+            if(posicionMouseX >= 245 && posicionMouseX <= 446) {
+                zonaDelMenu.style = `width: ${posicionMouseX}px;`;
+            }
+        }
     });
 }
