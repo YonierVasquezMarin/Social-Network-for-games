@@ -1,0 +1,37 @@
+/* Switch para cambiar la luminosidad de varios elementos de la página */
+#switchDeLuminosidad {
+    width: 77px;
+    height: 35px;
+    background-color: #3f51b5;
+    margin-right: 62px;
+    border-radius: 18px;
+    cursor: pointer;
+    display: flex;
+}
+    #iconoIndicador {
+        width: 25px;
+        height: 25px;
+        border-radius: 13px;
+        background-color: white;
+        margin: 5px;
+        left: 0px;
+        position: relative;
+        transition: left .4s ease;
+        z-index: 1;
+    }
+        #imagenIconoIndicador {
+            margin: 3px;
+            z-index: 1;
+            content: url("../imgs/icons/switch/icon-sol.svg");
+            transition: content 1s linear;
+        }
+        .imagenesIndicadoras {
+            width: 21px;
+            position: relative;
+        }
+            #imagenIndicadorSol {
+                right: 27px;
+            }
+            #imagenIndicadorLuna {
+                right: 5px;
+            }

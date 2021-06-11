@@ -6,15 +6,15 @@ h3 {
     cursor: default;
 }
 
-/* Encabezado de la página*/
+/* Encabezado de la página (en todas las vistas va a ser igual)*/
 header {
     display: flex;
-    padding: 15px;
+    padding: 15px 19px;
     background-color: #927bf7;
     flex-flow: row nowrap;
     align-items: center;
     height: 56px;
-    width: 98%;
+    width: 100%;
     position: fixed;
     z-index: 1;
 }
@@ -26,11 +26,9 @@ header {
         display: flex;
         justify-content: flex-end;
     }
-        header > div > div{
-            width: 80px;
-            height: 20px;
-            background-color: crimson;
-        }
+        
+
+
 
 /* Cuerpo de la página (en todas las vistas va a ser igual)*/
 main {
@@ -45,28 +43,31 @@ main {
 }
     #menu {
         width: 400px;
-        padding: 17px;
+        padding: 19px;
         box-sizing: border-box;
     }
         .botonesDelMenu {
             padding: 10px;
-            background-color: #ccccf3;
+            background-color: #ff9800d1;
             display: flex;
             align-items: center;
             padding-left: 18px;
             border-radius: 10px;
             transition: background-color .1s linear;
+            border: 1px solid #747474;
+            box-shadow: 0px 0px 3px 0px grey;
         }
         .botonesDelMenu:not(:first-child) {
-           margin-top: 14px;
+           margin-top: 18px;
         }
         .botonesDelMenu:hover {
-            background-color: #8680c8;
+            background-color: #e18804;
             transition: background-color .1s linear;
+            cursor: pointer;
         } 
             .botonesDelMenu > img {
                 margin-right: 11px;
-                width: 28px;
+                width: 33px;
             }
             .botonesDelMenu > h3 {
                 display: inline-block;

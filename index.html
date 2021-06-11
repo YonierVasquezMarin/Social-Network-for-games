@@ -6,17 +6,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Social Network for games</title>
     <link rel="stylesheet" href="styles/index.css">
+    <link rel="stylesheet" href="styles/switchDeLuminosidad.css">
 </head>
 <body>
     <header>
         <img src="imgs/img-logotipo-social.svg" alt="Logotipo de Social Network">
         <!-- Boton para cambiar la luminosidad de la página -->
         <div>
-            <div></div>
+            <div id="switchDeLuminosidad">
+                <div id="iconoIndicador">
+                    <img id="imagenIconoIndicador">
+                </div>
+                <img class="imagenesIndicadoras" id="imagenIndicadorSol" src="imgs/icons/switch/icon-sol-blanco.svg">
+                <img class="imagenesIndicadoras" id="imagenIndicadorLuna" src="imgs/icons/switch/icon-luna-blanco.svg">
+            </div>
+            <script src="js/cambiadorDeLuminosidad.js"></script>
         </div>
+        <!-- Fin boton de cambio de luminosidad -->
     </header>
 
-    <main>
+    <main id="main">
         <!-- Menú de secciones -->
         <div id="menu">
             <section class="botonesDelMenu"><img src="imgs/icons/icon-personas.svg"><h3>Amigos</h3></section>
