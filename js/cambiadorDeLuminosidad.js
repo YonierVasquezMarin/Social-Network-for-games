@@ -37,6 +37,5 @@ function cambiarColoresDeElementos() {
         let elementoAModificar = document.querySelector(elementoDeLaLista.id);
         elementoAModificar.style = `transition: background-color 1s linear;
             background-color: ${coloresPorDefecto ? elementoDeLaLista.colorPorDefecto: elementoDeLaLista.colorEnModoOscuro};`;
-            console.log('color cambiado');
     });
 }

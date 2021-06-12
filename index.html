@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -8,29 +9,38 @@
     <link rel="stylesheet" href="styles/index.css">
     <link rel="stylesheet" href="styles/switchDeLuminosidad.css">
 </head>
+
 <body>
     <header>
         <img src="imgs/img-logotipo-social.svg" alt="Logotipo de Social Network">
-        <!-- Boton para cambiar la luminosidad de la página -->
-        <div>
-            <div id="switchDeLuminosidad">
-                <div id="iconoIndicador">
-                    <img id="imagenIconoIndicador">
-                </div>
-                <img class="imagenesIndicadoras" id="imagenIndicadorSol" src="imgs/icons/switch/icon-sol-blanco.svg">
-                <img class="imagenesIndicadoras" id="imagenIndicadorLuna" src="imgs/icons/switch/icon-luna-blanco.svg">
-            </div>
-            <script src="js/cambiadorDeLuminosidad.js"></script>
-        </div>
-        <!-- Fin boton de cambio de luminosidad -->
     </header>
 
     <main id="main">
         <!-- Menú de secciones -->
         <div id="menu">
-            <section class="botonesDelMenu"><img src="imgs/icons/icon-personas.svg"><h3>Amigos</h3></section>
-            <section class="botonesDelMenu"><img src="imgs/icons/icon-juegos.svg"><h3>Juegos</h3></section>
-            <section class="botonesDelMenu"><img src="imgs/icons/icon-info.svg"><h3>Nosotros</h3></section>
+            <!-- Boton para cambiar la luminosidad de la página -->
+            <div id="contenedorDelSwitch">
+                <div id="switchDeLuminosidad">
+                    <div id="iconoIndicador">
+                        <img id="imagenIconoIndicador">
+                    </div>
+                    <img class="imagenesIndicadoras" id="imagenIndicadorSol"
+                        src="imgs/icons/switch/icon-sol-blanco.svg">
+                    <img class="imagenesIndicadoras" id="imagenIndicadorLuna"
+                        src="imgs/icons/switch/icon-luna-blanco.svg">
+                </div>
+                <script src="js/cambiadorDeLuminosidad.js"></script>
+            </div>
+            <!-- Fin boton de cambio de luminosidad -->
+            <section class="botonesDelMenu"><img src="imgs/icons/icon-personas.svg">
+                <h3>Amigos</h3>
+            </section>
+            <section class="botonesDelMenu"><img src="imgs/icons/icon-juegos.svg">
+                <h3>Juegos</h3>
+            </section>
+            <section class="botonesDelMenu"><img src="imgs/icons/icon-info.svg">
+                <h3>Nosotros</h3>
+            </section>
         </div>
         <!-- Barra separadora móvil -->
         <div id="barraDeslizante"></div>
@@ -39,4 +49,5 @@
         <div id="vistaDeContenido"></div>
     </main>
 </body>
+
 </html>
