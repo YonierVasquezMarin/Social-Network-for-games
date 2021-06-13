@@ -8,34 +8,73 @@ switchDeLuminosidad.addEventListener('click', () => {
         //Activar modo oscuro
         iconoIndicador.style = "left: 42px;";//Desliza el switch
         imagenIndicadora.style = 'content: url("../imgs/icons/switch/icon-luna.svg");';
+        cambiarEstilosDeElementos();
         coloresPorDefecto = false;
-        cambiarColoresDeElementos();
     } else {
         //Activar colores por defecto
         iconoIndicador.style = "left: 0px;";
         imagenIndicadora.style = 'content: url("../imgs/icons/switch/icon-sol.svg");';
+        cambiarEstilosDeElementos();
         coloresPorDefecto = true;
-        cambiarColoresDeElementos();
     }
 });
+
+
 
 /**
  * Cambia los colores de algunos elementos de la página.
  * Cambia de su color por defecto a un color más oscuro y
  * viceversa.
  */
-function cambiarColoresDeElementos() {
-    const elementosParaModificarSuFondo = [
+function cambiarEstilosDeElementos() {
+
+    function haceReferenciaAUnUnicoElemento(datosDelElemento) {
+        if(datosDelElemento.id[0]=='#') {
+            return true;
+        }
+        return false;
+    }
+
+    const elementosParaModificarSusEstilos = [
         {
-            id: "#main",
-            colorPorDefecto: "white",
-            colorEnModoOscuro: "#363434"
+            id: '#main',
+            estilosDelModoOscuro: 'background-color: #363434;'
+        },
+        {
+            id: '#contenedorDelSwitch',
+            estilosDelModoOscuro: 'border-bottom: 1px solid white;'
+        },
+        {
+            id: '.botonesDelMenu',
+            estilosDelModoOscuro: 'border: 1px solid wheat;background-color: wheat;'
         }
     ];
 
-    elementosParaModificarSuFondo.forEach((elementoDeLaLista) => {
-        let elementoAModificar = document.querySelector(elementoDeLaLista.id);
-        elementoAModificar.style = `transition: background-color 1s linear;
-            background-color: ${coloresPorDefecto ? elementoDeLaLista.colorPorDefecto: elementoDeLaLista.colorEnModoOscuro};`;
-    });
+    if(coloresPorDefecto) {
+        //Cambiar a estilos del modo oscuro
+        elementosParaModificarSusEstilos.forEach( (elementoDeLaLista) => {
+            if(haceReferenciaAUnUnicoElemento(elementoDeLaLista)) {
+                let elemento = document.querySelector(elementoDeLaLista.id);
+                elemento.style = 'transition: all 1s linear;'+elementoDeLaLista.estilosDelModoOscuro;
+            } else {
+                let elementosDeLaClase = document.querySelectorAll(elementoDeLaLista.id);
+                elementosDeLaClase.forEach( (elemento) => {
+                    elemento.style = 'transition: all 1s linear;'+elementoDeLaLista.estilosDelModoOscuro;
+                });
+            }
+        });
+    } else {
+        //Cambiar a los estilos por defecto
+        elementosParaModificarSusEstilos.forEach( (elementoDeLaLista) => {
+            if(haceReferenciaAUnUnicoElemento(elementoDeLaLista)) {
+                let elemento = document.querySelector(elementoDeLaLista.id);
+                elemento.style = 'transition: all 1s linear;';
+            } else {
+                let elementosDeLaClase = document.querySelectorAll(elementoDeLaLista.id);
+                elementosDeLaClase.forEach( (elemento) => {
+                    elemento.style = 'transition: all 1s linear;';
+                });
+            }
+        });
+    }
 }
