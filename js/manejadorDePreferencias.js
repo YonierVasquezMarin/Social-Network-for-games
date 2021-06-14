@@ -1,11 +1,15 @@
 /* Se encarga de cargar la preferencia de luminosidad (si el modo
     oscuro está disponible) y el ancho del menú movil. */
 
-//Nombres de las propiedades del local store:
-//-Para el fondo oscuro: estilosPorDefecto
-//-Para el ancho del menú móvil: anchoDelMenu
+let estilosPorDefectoActivados = localStorage.getItem("estilosPorDefecto");
+if (estilosPorDefectoActivados != null) {
+    if (estilosPorDefectoActivados == "false") {
+        cambiarEstilosDeElementos(true, false);
+        deslizarElSwitch(true, false);
+    }
+}
 
-//Elementos a modificar:
-//-fondo
-//-switch
-//-ancho del menu.
+let anchoDelMenuGuardado = localStorage.getItem("anchoDelMenu");
+if (anchoDelMenuGuardado != null) {
+    modificarAnchoDelMenu(anchoDelMenuGuardado);
+}

@@ -1,6 +1,3 @@
-const switchDeLuminosidad = document.querySelector('#switchDeLuminosidad');
-const imagenIndicadora = document.querySelector('#imagenIconoIndicador');
-
 /**
  * Retorna si el sitio tiene los estilos por defecto.
  * @returns {Boolean} si tiene los estilos por defecto
@@ -9,7 +6,6 @@ const imagenIndicadora = document.querySelector('#imagenIconoIndicador');
  */
 function estanLosEstilosPorDefecto() {
     let estanLosEstilosPorDefecto = localStorage.getItem("estilosPorDefecto");
-
     if(estanLosEstilosPorDefecto == null) {
         return true;
     } else {
@@ -46,39 +42,20 @@ function cambiarPreferenciaDeEstilos() {
  * false se desliza inmediatamente sin transicion.
  */
 function deslizarElSwitch(deslizarHaciaLaDerecha, deslizarConTransicion) {
+    let tTransicionDelSwitch = "";
+    if (deslizarConTransicion) {
+        tTransicionDelSwitch = "transition: left .4s ease;";
+    }
     const iconoIndicador = document.querySelector('#iconoIndicador');
+    const imagenIndicadora = document.querySelector('#imagenIconoIndicador');
     if (deslizarHaciaLaDerecha) {
-        if (deslizarConTransicion) {
-            iconoIndicador.style = "left: 42px;transition: left .4s ease;";
-        } else {
-            iconoIndicador.style = "left: 42px;";
-        }
+        iconoIndicador.style = `left: 42px;${tTransicionDelSwitch}`;
         imagenIndicadora.style = 'content: url("../imgs/icons/switch/icon-luna.svg");';
     } else {
-        if (deslizarConTransicion) {
-            iconoIndicador.style = "left: 0px;transition: left .4s ease;";
-        } else {
-            iconoIndicador.style = "left: 0px;";
-        }
+        iconoIndicador.style = `left: 0px;${tTransicionDelSwitch}`;
         imagenIndicadora.style = 'content: url("../imgs/icons/switch/icon-sol.svg");';
     }
 }
-
-switchDeLuminosidad.addEventListener('click', () => {
-    let estadoDeEstilosPorDefecto = estanLosEstilosPorDefecto();
-    if(estadoDeEstilosPorDefecto) {
-        //Activar modo oscuro
-        this.deslizarElSwitch(true,true);
-    } else {
-        //Activar colores por defecto
-        this.deslizarElSwitch(false,true);
-    }
-    cambiarEstilosDeElementos(estadoDeEstilosPorDefecto);
-    cambiarPreferenciaDeEstilos();
-});
-
-
-
 
 /**
  * Cambia los estilos de algunos elementos de la página.
@@ -88,9 +65,10 @@ switchDeLuminosidad.addEventListener('click', () => {
  * @param {boolean} estanLosEstilosPorDefecto Es el estado de los estilos
  * del sitio. Si el sitio tiene sus estilos por defecto esto es
  * true, si los estilos están en oscuros esto es false.
+ * @param {boolean} hacerCambiosConTransicion Si esto está en true, todos
+ * los cambios suceden suavemente usando una transición.
  */
-function cambiarEstilosDeElementos(estanLosEstilosPorDefecto) {
-
+function cambiarEstilosDeElementos(estanLosEstilosPorDefecto, hacerCambiosConTransicion) {
     /**
      * Retorna si el objeto hace referencia a un unico elemento.
      * @param {Object} datosDelElemento Es un objeto que contiene
@@ -123,31 +101,34 @@ function cambiarEstilosDeElementos(estanLosEstilosPorDefecto) {
         }
     ];
 
-    if(estanLosEstilosPorDefecto) {
-        //Cambiar a estilos del modo oscuro
-        elementosParaModificarSusEstilos.forEach( (elementoDeLaLista) => {
-            if(haceReferenciaAUnUnicoElemento(elementoDeLaLista)) {
-                let elemento = document.querySelector(elementoDeLaLista.id);
-                elemento.style = 'transition: all 1s linear;'+elementoDeLaLista.estilosDelModoOscuro;
-            } else {
-                let elementosDeLaClase = document.querySelectorAll(elementoDeLaLista.id);
-                elementosDeLaClase.forEach( (elemento) => {
-                    elemento.style = 'transition: all 1s linear;'+elementoDeLaLista.estilosDelModoOscuro;
-                });
-            }
-        });
-    } else {
-        //Cambiar a los estilos por defecto
-        elementosParaModificarSusEstilos.forEach( (elementoDeLaLista) => {
-            if(haceReferenciaAUnUnicoElemento(elementoDeLaLista)) {
-                let elemento = document.querySelector(elementoDeLaLista.id);
-                elemento.style = 'transition: all 1s linear;';
-            } else {
-                let elementosDeLaClase = document.querySelectorAll(elementoDeLaLista.id);
-                elementosDeLaClase.forEach( (elemento) => {
-                    elemento.style = 'transition: all 1s linear;';
-                });
-            }
-        });
+    let tTransicionDeLosElementos = "";
+    if (hacerCambiosConTransicion) {
+        tTransicionDeLosElementos = "transition: all 1s linear;";
     }
+
+    elementosParaModificarSusEstilos.forEach( (elementoDeLaLista) => {
+        if(haceReferenciaAUnUnicoElemento(elementoDeLaLista)) {
+            let elemento = document.querySelector(elementoDeLaLista.id);
+            elemento.style = `${tTransicionDeLosElementos}${estanLosEstilosPorDefecto?elementoDeLaLista.estilosDelModoOscuro:""}`;
+        } else {
+            let elementosDeLaClase = document.querySelectorAll(elementoDeLaLista.id);
+            elementosDeLaClase.forEach( (elemento) => {
+                elemento.style = `${tTransicionDeLosElementos}${estanLosEstilosPorDefecto?elementoDeLaLista.estilosDelModoOscuro:""}`;
+            });
+        }
+    });
 }
+
+const switchDeLuminosidad = document.querySelector('#switchDeLuminosidad');
+switchDeLuminosidad.addEventListener('click', () => {
+    let estadoDeEstilosPorDefecto = estanLosEstilosPorDefecto();
+    if(estadoDeEstilosPorDefecto) {
+        //Activar modo oscuro
+        this.deslizarElSwitch(true,true);
+    } else {
+        //Activar colores por defecto
+        this.deslizarElSwitch(false,true);
+    }
+    cambiarEstilosDeElementos(estadoDeEstilosPorDefecto, true);
+    cambiarPreferenciaDeEstilos();
+});
