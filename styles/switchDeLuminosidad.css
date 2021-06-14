@@ -29,7 +29,9 @@
         }
             #imagenIndicadorSol {
                 right: 27px;
+                content: url("../imgs/icons/switch/icon-sol-blanco.svg");
             }
             #imagenIndicadorLuna {
                 right: 5px;
+                content: url("../imgs/icons/switch/icon-luna-blanco.svg");
             }
