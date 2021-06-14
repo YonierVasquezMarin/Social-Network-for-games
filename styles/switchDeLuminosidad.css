@@ -16,14 +16,12 @@
         margin: 5px;
         left: 0px;
         position: relative;
-        transition: left .4s ease;
         z-index: 1;
     }
         #imagenIconoIndicador {
             margin: 3px;
             z-index: 1;
             content: url("../imgs/icons/switch/icon-sol.svg");
-            transition: content 1s linear;
         }
         .imagenesIndicadoras {
             width: 21px;
