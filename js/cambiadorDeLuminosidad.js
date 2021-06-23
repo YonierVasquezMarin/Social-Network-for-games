@@ -46,10 +46,10 @@ function deslizarElSwitch(deslizarHaciaLaDerecha, deslizarConTransicion) {
     if (deslizarConTransicion) {
         tTransicionDelSwitch = "transition: left .4s ease;";
     }
-    const iconoIndicador = document.querySelector('#iconoIndicador');
-    const imagenIndicadora = document.querySelector('#imagenIconoIndicador');
+    const iconoIndicador = document.querySelector('#contenedorDelBoton');
+    const imagenIndicadora = document.querySelector('#iconoDeEstadoDelSwitch');
     if (deslizarHaciaLaDerecha) {
-        iconoIndicador.style = `left: 42px;${tTransicionDelSwitch}`;
+        iconoIndicador.style = `left: 51px;${tTransicionDelSwitch}`;
         imagenIndicadora.style = 'content: url("../imgs/icons/switch/icon-luna.svg");';
     } else {
         iconoIndicador.style = `left: 0px;${tTransicionDelSwitch}`;
@@ -92,18 +92,22 @@ function cambiarEstilosDeElementos(estanLosEstilosPorDefecto, hacerCambiosConTra
             estilosDelModoOscuro: 'background-color: #363434;'
         },
         {
-            id: '#contenedorDelSwitch',
-            estilosDelModoOscuro: 'border-bottom: 1px solid white;'
+            id: '#menu',
+            estilosDelModoOscuro: 'background-color: #363434;'
         },
         {
             id: '.botonesDelMenu',
             estilosDelModoOscuro: 'border: 1px solid wheat;background-color: wheat;'
+        },
+        {
+            id: '#btnCerrarMenu',
+            estilosDelModoOscuro: 'background-color: #363434;'
         }
     ];
 
     let tTransicionDeLosElementos = "";
     if (hacerCambiosConTransicion) {
-        tTransicionDeLosElementos = "transition: all 1s linear;";
+        tTransicionDeLosElementos = "transition: background-color 1s linear;";
     }
 
     elementosParaModificarSusEstilos.forEach( (elementoDeLaLista) => {
@@ -119,15 +123,15 @@ function cambiarEstilosDeElementos(estanLosEstilosPorDefecto, hacerCambiosConTra
     });
 }
 
-const switchDeLuminosidad = document.querySelector('#switchDeLuminosidad');
+const switchDeLuminosidad = document.querySelector('#contenedorDelSwitch');
 switchDeLuminosidad.addEventListener('click', () => {
     let estadoDeEstilosPorDefecto = estanLosEstilosPorDefecto();
     if(estadoDeEstilosPorDefecto) {
         //Activar modo oscuro
-        this.deslizarElSwitch(true,true);
+        deslizarElSwitch(true,true);
     } else {
         //Activar colores por defecto
-        this.deslizarElSwitch(false,true);
+        deslizarElSwitch(false,true);
     }
     cambiarEstilosDeElementos(estadoDeEstilosPorDefecto, true);
     cambiarPreferenciaDeEstilos();

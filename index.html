@@ -12,33 +12,38 @@
 
 <body>
     <header>
+        <span id="btnAbrirMenu"><img src="imgs/icons/icon-menu.svg" alt="menu"></span>
         <img src="imgs/img-logotipo-social.svg" alt="Logotipo de Social Network">
     </header>
 
     <main id="main">
         <!-- Menú con botones -->
-        <div id="menu">
-            <!-- Boton para cambiar la luminosidad de la página -->
-            <div id="contenedorDelSwitch">
-                <div id="switchDeLuminosidad">
-                    <div id="iconoIndicador">
-                        <img id="imagenIconoIndicador">
+        <div id="menuLateral">
+            <div id="menu">
+                <!-- Boton para cambiar la luminosidad de la página -->
+                <div id="contenedorDelSwitch">
+                    <div id="contenedorDelBoton">
+                        <div id="botonDelSwitch">
+                            <img id="iconoDeEstadoDelSwitch">
+                        </div>
                     </div>
-                    <img class="imagenesIndicadoras" id="imagenIndicadorSol">
-                    <img class="imagenesIndicadoras" id="imagenIndicadorLuna">
+                    <div id="contenedorDelFondo">
+                        <img><img>
+                    </div>
                 </div>
-            </div>
-            <!-- Fin boton de cambio de luminosidad -->
+                <!-- Fin boton de cambio de luminosidad -->
 
-            <section class="botonesDelMenu"><img src="imgs/icons/icon-personas.svg">
-                <h3>Amigos</h3>
-            </section>
-            <section class="botonesDelMenu"><img src="imgs/icons/icon-juegos.svg">
-                <h3>Juegos</h3>
-            </section>
-            <section class="botonesDelMenu"><img src="imgs/icons/icon-info.svg">
-                <h3>Nosotros</h3>
-            </section>
+                <section class="botonesDelMenu"><img src="imgs/icons/icon-personas.svg">
+                    <h3>Amigos</h3>
+                </section>
+                <section class="botonesDelMenu"><img src="imgs/icons/icon-juegos.svg">
+                    <h3>Juegos</h3>
+                </section>
+                <section class="botonesDelMenu"><img src="imgs/icons/icon-info.svg">
+                    <h3>Nosotros</h3>
+                </section>
+            </div>
+            <div id="btnCerrarMenu"><img></div>
         </div>
 
         <!-- Barra separadora móvil -->

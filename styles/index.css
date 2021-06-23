@@ -8,13 +8,21 @@ header {
     display: flex;
     padding: 15px 19px;
     background-color: #927bf7;
-    flex-flow: row nowrap;
     align-items: center;
     height: 56px;
     width: 100%;
     position: fixed;
     z-index: 2;
 }
+    #btnAbrirMenu {
+        display: none;
+        margin-right: 28px;
+        margin-left: 9px;
+        
+    }
+        #btnAbrirMenu > img {
+            width: 33px;
+        }
     header > img {
         max-height: 100%;
     }
@@ -26,10 +34,8 @@ header {
 main {
     display: flex;
     flex-flow: row nowrap;
-    background-color: white;
     width: 100%;
-    height: 1000px;
-    min-height: 1000px;
+    min-height: 800px;
     position: relative;
     top: 86px;
 }
@@ -37,6 +43,8 @@ main {
         width: 400px;
         padding: 19px;
         box-sizing: border-box;
+        height: 100%;
+        background-color: white;
     }
         #contenedorDelSwitch {
             border-bottom: 1px solid gray;
@@ -70,6 +78,9 @@ main {
                 font-size: 18px;
                 color: #2c2c2c;
             }
+    #btnCerrarMenu {
+        display: none;
+    }
     #barraDeslizante {
         width: 5px;
         background-color: #808080c9;
@@ -78,3 +89,47 @@ main {
     #vistaDeContenido {
         background-color: gold;
     }
+
+
+/* DISEÑO PARA DISPOSITIVOS DIFERENTES A COMPUTADORAS */
+@media (max-width: 770px) {
+    #btnAbrirMenu {
+        display: block;
+    }
+    #main {
+        height: 0px;
+        min-height: 0px;
+        position: static;
+    }
+        #menuLateral {
+            background-color: #80808094;
+            width: 100%;
+            position: fixed;
+            z-index: 2;
+            height: 100%;
+            display: flex;
+        }
+            #menu {
+                height: 100%;
+                max-width: 240px;
+                background-color: white;
+            }
+        #btnCerrarMenu {
+            width: 70px;
+            height: 70px;
+            background-color: white;
+            display: flex;
+            align-content: center;
+            justify-content: center;
+            margin-left: 30px;
+            margin-top: 13px;
+            border-radius: 50px;
+        }
+            #btnCerrarMenu > img {
+                width: 42px;
+                content: url("../imgs/icons/icon-cerrar.svg");
+            }
+        #barraDeslizante {
+            display: none;
+        }
+}
