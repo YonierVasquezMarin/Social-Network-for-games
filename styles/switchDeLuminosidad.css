@@ -1,5 +1,5 @@
 /* Switch para cambiar la luminosidad de varios elementos de la página */
-#contenedorDelSwitch {
+#switch {
     width: 85px;
     height: 32px;
     background-color: #3f51b5;

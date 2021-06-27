@@ -1,0 +1,40 @@
+/* Se aplica a todas las vistas */
+* {
+    margin: 0;
+}
+
+/* Encabezado de la página (en todas las vistas va a ser igual)*/
+header {
+    display: flex;
+    padding: 15px 19px;
+    background-color: #927bf7;
+    align-items: center;
+    height: 56px;
+    width: 100%;
+    position: fixed;
+    z-index: 2;
+}
+    #btnAbrirMenu {
+        display: none;
+        margin-right: 28px;
+        margin-left: 9px;
+        
+    }
+        #btnAbrirMenu > img {
+            width: 33px;
+        }
+    header > img {
+        max-height: 100%;
+    }
+    #contenedorDelSwitch {
+        width: 100%;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 48px;
+    }
+        #switch {
+            border-bottom: 1px solid gray;
+            padding-bottom: 24px;
+            padding-top: 11px;
+            cursor: pointer;
+        }

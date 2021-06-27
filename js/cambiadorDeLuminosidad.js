@@ -123,7 +123,7 @@ function cambiarEstilosDeElementos(estanLosEstilosPorDefecto, hacerCambiosConTra
     });
 }
 
-const switchDeLuminosidad = document.querySelector('#contenedorDelSwitch');
+const switchDeLuminosidad = document.querySelector('#switch');
 switchDeLuminosidad.addEventListener('click', () => {
     let estadoDeEstilosPorDefecto = estanLosEstilosPorDefecto();
     if(estadoDeEstilosPorDefecto) {

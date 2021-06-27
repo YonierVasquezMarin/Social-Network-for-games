@@ -14,25 +14,26 @@
     <header>
         <span id="btnAbrirMenu"><img src="imgs/icons/icon-menu.svg" alt="menu"></span>
         <img src="imgs/img-logotipo-social.svg" alt="Logotipo de Social Network">
+        <!-- Boton para cambiar la luminosidad de la página -->
+        <div id="contenedorDelSwitch">
+            <div id="switch">
+                <div id="contenedorDelBoton">
+                    <div id="botonDelSwitch">
+                        <img id="iconoDeEstadoDelSwitch">
+                    </div>
+                </div>
+                <div id="contenedorDelFondo">
+                    <img><img>
+                </div>
+            </div>
+        </div>
     </header>
 
     <main id="main">
-        <!-- Menú con botones -->
+        <!-- Menú lateral -->
         <div id="menuLateral">
             <div id="menu">
-                <!-- Boton para cambiar la luminosidad de la página -->
-                <div id="contenedorDelSwitch">
-                    <div id="contenedorDelBoton">
-                        <div id="botonDelSwitch">
-                            <img id="iconoDeEstadoDelSwitch">
-                        </div>
-                    </div>
-                    <div id="contenedorDelFondo">
-                        <img><img>
-                    </div>
-                </div>
-                <!-- Fin boton de cambio de luminosidad -->
-
+                <!-- Botones del menú -->
                 <section class="botonesDelMenu"><img src="imgs/icons/icon-personas.svg">
                     <h3>Amigos</h3>
                 </section>
@@ -49,14 +50,14 @@
         <!-- Barra separadora móvil -->
         <div id="barraDeslizante"></div>
         <script src="js/modificadorDelAnchoDelMenu.js"></script>
-        <!-- Zona para diferentes contenidos -->
+
+        <!-- Zona para el contenidos -->
         <div id="vistaDeContenido"></div>
     </main>
     
     <!-- Scripts para la luminosidad y preferencias del sitio -->
     <script src="js/cambiadorDeLuminosidad.js"></script>
     <script src="js/manejadorDePreferencias.js"></script>
-    <!-- Fin de los script -->
 </body>
 
 </html>
